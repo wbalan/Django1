@@ -20,5 +20,4 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('hello.urls', namespace = 'hello')),
     re_path(r'^uchet/', include('uchet.urls', namespace='uchet')),
-]пмп
-ом т р рмрмр оро
+]
