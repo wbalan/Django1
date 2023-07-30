@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Приложение</title>
+        <style>
+        table {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+        }
+
+        td, th{
+            border: solid 1px #ccc;
+        }
+        .collapsed{
+            border-collapse: collapse;
+        }
+        .separated{
+            border-collapse: separate;
+        }
+        </style>
+</head>
+<body>
+	{% if card.count > 0 %}
+	<h2>Список автопогрузчиков</h2>
+	<a href="../add">Новый погрузчик</a>
+	<table>
+		<thead>
+		<th>Модель</th>
+		<th>Инвентарный номер</th>
+		<th>Заводской номер</th>
+		<th>№ АКБ</th>
+		<th>Гарантийный срок АКБ</th>
+		<th>Дата покупки</th>
+		<th>Дата покупки АКБ</th>
+		</thead>
+
+		{% for ca in card %}
+		<tr>
+			<td>{{ ca.type }}</td>
+			<td>{{ ca.inn }}</td>
+			<td>{{ ca.sn }}</td>
+			<td>{{ ca.snakb }}</td>
+			<td>{{ ca.gsakb}}</td>
+			<td>{{ ca.dateofpurchase }}</td>
+			<td>{{ ca.dateofpurchaseakb }}</td>
+			<td><a href="edit/{{ca.inn}}">Изменить</a> | <a href="delete/{{ca.inn}}">Удалить</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>
+
+		

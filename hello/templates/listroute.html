@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Приложение</title>
+        <style>
+        table {
+            border: 1px solid #ccc;
+            border-spacing: 3px;
+        }
+
+        td, th{
+            border: solid 1px #ccc;
+        }
+        .collapsed{
+            border-collapse: collapse;
+        }
+        .separated{
+            border-collapse: separate;
+        }
+        </style>
+</head>
+<body>
+	{% if route.count > 0 %}
+	<h2>Маршрутные листы</h2>
+	<a href="../createroute/">Новый маршрутный лист</a>
+	<table>
+		<thead>
+		<th>Погрузчик</th>
+		<th>Операция</th>
+		<th>ДатаВремя</th>
+		<th>Водитель</th>
+		<th>Неисправности</th>
+		<th>Пробег</th>
+		<th>Зарядка</th>
+		</thead>
+
+		{% for r in route %}
+		<tr>
+			<td>{{ r.card.inn }}</td>
+			<td>{{ r.kindofoperation }}</td>
+			<td>{{ r.dateoperation }}</td>
+			<td>{{ r.driver }}</td>
+			<td>{{ r.stateout}}</td>
+			<td>{{ r.running }}</td>
+			<td>{{ r.charge }}</td>
+			<td><a href="edit/{{ca.inn}}">Изменить</a> | <a href="delete/{{ca.inn}}">Удалить</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>
+
+		

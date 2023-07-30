@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Ввод маршрутного листа</title>
+</head>
+<body>
+	<form method="POST" >
+		{% csrf_token %}
+		<caption>Маршрутный лист</caption>
+				<p>
+				<label>Введите ИНН погрузчика</label>
+				<select name="card">
+				{% for ca in card %}
+					<option value = "{{ca.id}}">{{ca.inn}}</option>
+				{% endfor %}
+				</select>
+				</p>
+
+				<p>
+					<label>Вид операции</label><br>
+					<input type="text" name = "kindofoperation" >
+				</p>
+				<p>
+					<label>Дата и время</label><br>
+					<input type="datetime-local" name = "dateoperation" >
+				</p>
+				<p>
+					<label>Водитель</label><br>
+					<input type="text" name = "driver" >
+				</p>
+				<p>
+					<label>Неисправости</label><br>
+					<input type="text" name = "stateout"  >
+				</p>
+				<p>
+					<label>Моточасы</label><br>
+					<input type="running" name = "running"  >
+				</p>
+				<p>
+					<label>Зарядка</label><br>
+					<input type="text" name="charge "  >
+				</p>
+
+		<input type="submit" value="Сохранить" />
+	</form>
+</body>
+</html>
+		
+			
+			

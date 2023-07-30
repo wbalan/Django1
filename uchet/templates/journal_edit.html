@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая запись</title>
+</head>
+<body>
+  <form method="POST" >
+    {%csrf_token%}
+    <caption>Редактирование записи {{jrn_ed.id}}</caption>
+        <p>
+          <label>Дата</label><br>
+          <input type="date" name = "date" required value={{jrn_ed.date_purch|date:"Y-m-d"}} >
+        </p>
+        <p>
+          <label>Номер погрузчика</label><br>
+          <input type="number" name = "acc" required value={{jrn_ed.acc}} >
+        </p>
+        <p>
+          <label>Наработка часов</label><br>
+          <input type="number" name = "work_hours" required value={{a}}>
+          <input size="2" type="number" name = "work_minutes" maxlength="2" min="0" max="59"  required value={{b}}>
+        </p>
+        <p>
+          <label>Неисправность</label><br>
+          <p>{{d}}</p>
+          <input type="textarea" name = "malf" value={{d}}  >
+        </p>
+        <p>
+          <label>Неисправность</label><br>
+          <input type="date" name = "date_rep" value={{jrn_ed.date_rep|date:"Y-m-d"}} >
+        </p>
+    <input type="submit" value="Сохранить">
+  </form>
+</body>
+</html>

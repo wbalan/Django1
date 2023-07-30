@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Hello</title>
+</head>
+<body>
+	<form method="POST" action = "create/">
+		{%csrf_token%}
+		<p> 
+			<label>Введите номер</label><br>
+			<input type="number" name = "number" />
+		</p>
+		<p>
+			<label>Введите описание</label><br>
+			<input type="number" name = "description" />
+		</p>
+		<input type="submit" value="Сохранить" >
+	</form>
+	{% if car.count > 0 %}
+	<h2>Список автопогрузчиков</h2>
+	<table>
+		<thead><th>Номер</th><th>Описание</th></thead>
+		{% for ca in car %}
+		<tr>
+			<td>{{ ca.number }}</td>
+			<td>{{ ca.description}}</td>
+			<td><a href="edit/{{ca.number}}">Изменить</a> | <a href="delete/{{ca.number}}">Удалить</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% endif %}
+</body>
+</html>
+
+		

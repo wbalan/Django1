@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Новая запись</title>
+</head>
+<body>
+  <table>
+    {{ form }}
+  </table>
+
+  <form method="POST" action="journal_create">
+    {%csrf_token%}
+    <caption>Новая запись</caption>
+        <p>
+          <label>Дата</label><br>
+          <input type="date" name = "date" required placeholder="цццццццццццццццц" />
+        </p>
+        <p>
+          <label>Номер погрузчика</label><br>
+          <input type="number" name = "acc" required placeholder="башмак" />
+        </p>
+        <p>
+          <label>Наработка часов</label><br>
+          <input type="number" name = "work_hours" required/> :
+          <input size="2" type="number" name = "work_minutes" maxlength="2" min="0" max="59"  required/>
+        </p>
+        <p>
+          <label>Неисправность</label><br>
+          <input type="text" name = "malf"/>
+        </p>
+        <p>
+          <label>Неисправность</label><br>
+          <input type="date" name = "date_rep" />
+        </p>
+    <input type="submit" value="Сохранить">
+  </form>
+</body>
+</html>

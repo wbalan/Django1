@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Uchet</title>
+</head>
+<body>
+<a href="journal_add.html">Новая запись</a>
+	{% if jour_list.count > 0 %}
+	<h2>Журнал учета работы погрузчиков</h2>
+	<table>
+		<thead><th>Дата</th><th>Номер погрузчика</th><th>Наработка</th><th>Неисправность</th><th>Дата устранения</th></thead>
+		{% for rec in jour_list %}
+		<tr>
+			<td>{{ rec.date_purch }}</td>
+			<td>{{ rec.acc}}</td>
+			<td>{{ rec.work_hours }}</td>
+			<td>{{ rec.malf}}</td>
+			<td>{{ rec.date_rep}}</td>
+			<td><a href="edit/{{rec.id}}">Изменить</a> | <a href="journal_delete/{{rec.id}}">Удалить</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h2>Нет записей</h2>
+	{% endif %}
+</body>
+</html>
+
+		

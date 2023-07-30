@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Погрузчик №{{card.inn}}</title>
+</head>
+<body>
+	<form method="POST">
+		{% csrf_token %}
+		<caption> Редактирование информации о погрузчике ИНН {{card.inn}}</caption>
+
+				<p>
+					<label>Тип, модель</label><br>
+					<input type="text" name = "type" value = {{card.type}} >
+				</p>
+				<p>
+					<label>Инвентарный номер</label><br>
+					<input type="number" name = "inn" value = {{card.inn}} >
+				</p>
+				<p>
+					<label>серийный номер</label><br>
+					<input type="text" name = "sn" value = {{card.sn}} >
+				</p>
+				<p>
+					<label>Дата покупки</label><br>
+					<input type="date" name = "dateofpurchase" value = {{card.dateofpurchase|date:"Y-m-d"}} >
+				</p>
+				<p>
+					<label>Дата покупки АКБ</label><br>
+					<input type="date" name = "dateofpurchaseakb" value = {{card.dateofpurchaseakb|date:"Y-m-d"}} >
+				</p>
+				<p>
+					<label>№ АКЬ</label><br>
+					<input type="text" name = "snakb" value = {{card.snakb}} >
+				</p>
+				<p>
+					<label>Гарантийный срок АКБ</label><br>
+					<input type="date" name = "gsakb" value = {{card.gsakb|date:"Y-m-d"}} >
+				</p>
+		<input type="submit" value="Сохранить" />
+	</form>
+</body>
+</html>
+		
+			
+			
